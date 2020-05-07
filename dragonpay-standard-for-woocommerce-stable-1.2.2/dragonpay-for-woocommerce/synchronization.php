@@ -914,14 +914,7 @@ $order = new WC_Order( $merchantTxnId_to_use);
              
                         
 
-                                   if($order->status == 'processing' OR $order->status == 'completed' OR $order->status == 'cancelled'){
-                                   				         
-                                         //No update needed
-
-                                      
-				                      }else{
-
-
+                                   if($order->status == 'on-hold'){
                                          // update order status (an admin note will be also created)
                                          $order->update_status('processing'); 
 
@@ -966,15 +959,7 @@ $order = new WC_Order( $merchantTxnId_to_use);
                    case 'F':                    
                                   
 
-				   if($order->status == 'failed' OR $order->status == 'cancelled'){
-                                  				         
-                                         //No update needed
-
-
-                                      
-				    }else{
-
-                                       
+				   if($order->status == 'on-hold'){
                                          // update order status (an admin note will be also created)
                                          $order->update_status('failed'); 
 
